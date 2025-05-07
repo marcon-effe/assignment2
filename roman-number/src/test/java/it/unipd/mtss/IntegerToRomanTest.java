@@ -6,6 +6,7 @@
 package it.unipd.mtss;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 public class IntegerToRomanTest {
@@ -69,5 +70,12 @@ public class IntegerToRomanTest {
         assertEquals("DCCC", IntegerToRoman.convert(800));
         assertEquals("CM", IntegerToRoman.convert(900));
         assertEquals("M", IntegerToRoman.convert(1000));
+    }
+
+    @Test
+    public void test_outOfBound() {
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(0));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(1001));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(-1));
     }
 }

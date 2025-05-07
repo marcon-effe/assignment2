@@ -7,6 +7,7 @@ package it.unipd.mtss;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RomanPrinterTest {
     @Test
@@ -69,5 +70,12 @@ public class RomanPrinterTest {
         assertEquals("  _____     _____    _____    _____ \n |  __ \\   / ____|  / ____|  / ____|\n | |  | | | |      | |      | |     \n | |  | | | |      | |      | |     \n | |__| | | |____  | |____  | |____ \n |_____/   \\_____|  \\_____|  \\_____|\n", RomanPrinter.print(800));
         assertEquals("   _____   __  __ \n  / ____| |  \\/  |\n | |      | \\  / |\n | |      | |\\/| |\n | |____  | |  | |\n  \\_____| |_|  |_|\n", RomanPrinter.print(900));
         assertEquals("  __  __ \n |  \\/  |\n | \\  / |\n | |\\/| |\n | |  | |\n |_|  |_|\n", RomanPrinter.print(1000));
+    }
+
+    @Test
+    public void testPrint_outOfBound() {
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(0));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(1001));
+        assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(-1));
     }
 }
