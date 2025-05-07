@@ -5,9 +5,8 @@
 
 package it.unipd.mtss;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RomanPrinterTest {
     @Test
@@ -77,5 +76,11 @@ public class RomanPrinterTest {
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(0));
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(1001));
         assertThrows(IllegalArgumentException.class, () -> RomanPrinter.print(-1));
+    }
+
+    @Test
+    public void testConstructor(){
+        RomanPrinter converter= new RomanPrinter();
+        assertNotNull(converter);
     }
 }
