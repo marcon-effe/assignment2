@@ -31,9 +31,7 @@
       <property name="max" value="10"/>
     </module>
 
-    <module name="MethodLength">
-      <property name="max" value="30"/>
-    </module>
+    <module name="MethodLength"/>
 
     <module name="EmptyCatchBlock"/>
 
