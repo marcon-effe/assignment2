@@ -12,7 +12,40 @@ public class RomanPrinter {
     }
 
     private static String printAsciiArt(String romanNumber) {
-        //TODO
-        return null;
+        StringBuilder arteAscii = new StringBuilder();
+    
+        String[][] lettere= {
+            { 
+                "  __  __ ",  "  _____  ", "   _____ ", "  _      ", " __   __", " __      __", "  _____ " 
+            },
+
+            {
+                " |  \\/  |", " |  __ \\ ", "  / ____|", " | |     ", " \\ \\ / /", " \\ \\    / /", " |_   _|"
+            },
+
+            {
+                " | \\  / |", " | |  | |", " | |     ", " | |     ", "  \\ V / ", "  \\ \\  / / ",  "   | |  " 
+            },
+
+            {
+                " | |\\/| |", " | |  | |", " | |     ", " | |     ", "   > <  ", "   \\ \\/ /  ",  "   | |  " 
+            },
+                
+            {
+                " | |  | |", " | |__| |", " | |____ ", " | |____ ", "  / . \\ ", "    \\  /   ",  "  _| |_ " 
+            },
+                
+            {
+                " |_|  |_|", " |_____/ ", "  \\_____|", " |______|", " /_/ \\_\\", "     \\/    ",  " |_____|" 
+            },
+        };
+        
+        for (int riga = 0; riga < 6; riga++) {
+            for (char carattere : romanNumber.toCharArray()) {
+                arteAscii.append(lettere[riga]["MDCLXVI".indexOf(carattere)]);
+            }
+            arteAscii.append("\n");
+        }
+        return arteAscii.toString();
     }
 }
